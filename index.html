@@ -6,12 +6,16 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis"></script>
     <title>Tensorflow.js Visor</title>
 </head>
-<body style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh;">
-    <div id="draw"></div>
-    <div>
-        <button>Scatter Plots</button>
-        <button>Bar Graph</button>
-        <button>Line Graph</button>
+<body style="text-align: center; padding-top: 5rem;">
+    <h1>TensorFlow js Visor</h1>
+    <p>Click any button below to see different data representations</p>
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5rem; width: 100%; padding-top: 2rem;">
+        <div id="draw" style="width: 100%; max-width: 600px;"></div>
+        <div>
+            <button class="btns" onclick="Draw(type = 'bar')" id="bar">Bar Graph</button>
+            <button class="btns" onclick="Draw(type = 'line')" id="line">Line Graph</button>
+            <button class="btns" onclick="Draw(type = 'scatter')" id="scatter">Scatter Plots</button>
+        </div>
     </div>
     <script src="visor.js">
     </script>
