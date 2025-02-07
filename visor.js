@@ -1,4 +1,4 @@
-function Draw(type = "scatter") {
+function Draw(type = "bar") {
     const buttons = document.getElementsByTagName("button");
 
     for (let button of buttons) {
@@ -10,6 +10,7 @@ function Draw(type = "scatter") {
     document.getElementById(type).style.backgroundColor = "blue";   
 
     const surface = document.getElementById("draw");
+    surface.innerHTML = "";
     const series = ['First', 'Second'];
 
     const serie1 = [];
@@ -27,24 +28,24 @@ function Draw(type = "scatter") {
 
         tfvis.render.scatterplot(surface, data);
     } else if (type === "bar") {
-        data = [
-            {index: 0, value: 100},
-            {index: 1, value: 200},
-            {index: 2, value: 150},
-            {index: 2, value: 250},
-        ];
+        data = [];
+        for(let i = 0; i < 10; i++) {
+            data[i] = { index: i, value: Math.random() * 100 };
+        }
 
         tfvis.render.barchart(surface, data);
     } else if (type === "line") {
-        let values = [
-            {x: 1, y: 20},
-            {x: 2, y: 30},
-            {x: 3, y: 5},
-            {x: 4, y: 12}
-        ];
+        let values = [];
+        for (let i = 0; i < 10; i++) {
+            values[i] = { x: i, y: Math.random() * 100 };
+        }
 
         tfvis.render.linechart(surface, {values});
     }
+}
+
+function reload() {
+    location.reload();
 }
 
 Draw();

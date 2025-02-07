@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis"></script>
+    <link rel="stylesheet" href="styles.css" />
     <title>Tensorflow.js Visor</title>
 </head>
 <body style="text-align: center; padding-top: 5rem;">
     <h1>TensorFlow js Visor</h1>
     <p>Click any button below to see different data representations</p>
     <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5rem; width: 100%; padding-top: 2rem;">
-        <div id="draw" style="width: 100%; max-width: 600px;"></div>
+        <div id="draw" style="width: 100%; max-width: 600px; display: flex; justify-content: center; align-items: center;">
+            <div id="loader"></div>
+        </div>
         <div>
-            <button class="btns" onclick="Draw(type = 'bar')" id="bar">Bar Graph</button>
+            <button class="btns" onclick="reload()" id="bar">Bar Graph</button>
             <button class="btns" onclick="Draw(type = 'line')" id="line">Line Graph</button>
             <button class="btns" onclick="Draw(type = 'scatter')" id="scatter">Scatter Plots</button>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis"></script>
     <script src="visor.js">
     </script>
 </body>
